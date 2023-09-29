@@ -183,10 +183,10 @@ GROUP BY product_line;
 -- Which branch sold more products than average product sold?
 SELECT 
 	branch, 
-    SUM(quantity) AS qnty
+    AVG(quantity) AS qnty
 FROM sales
 GROUP BY branch
-HAVING SUM(quantity) > (SELECT AVG(quantity) FROM sales);
+HAVING AVG(quantity) > (SELECT AVG(quantity) FROM sales);
 
 
 -- What is the most common product line by gender
